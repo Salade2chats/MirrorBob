@@ -4,8 +4,8 @@ from pathlib import Path
 import click
 from dotenv import load_dotenv
 
-from .services.hermes import Client
 from .__about__ import __version__
+from .services.hermes import Client
 from .services.logger import Logger
 
 
@@ -21,7 +21,7 @@ def main(quiet, verbose):
 
 
 def on_connect(client, userdata, flags, rc):
-    print("Connected with result code "+str(rc))
+    print("Connected with result code " + str(rc))
     print('CONNECTED')
     print(client)
 
@@ -38,7 +38,7 @@ def run():
     print(os.getenv('SPOTIFY_EMAIL'))
     print("coucou")
     client = Client(mqtt_host=os.getenv('MQTT_HOST'),
-                    mqtt_port=os.getenv('MQTT_PORT'))
+                    mqtt_port=int(os.getenv('MQTT_PORT')))
     client.on_connect = on_connect
     client.connect()
     # Blocking call that processes network traffic, dispatches callbacks and

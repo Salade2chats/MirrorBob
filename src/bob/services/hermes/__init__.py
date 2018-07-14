@@ -1,6 +1,6 @@
 import paho.mqtt.client as mqtt
 
-from src.bob.services.logger import Logger
+from ...services.logger import Logger
 
 
 class Client(mqtt.Client):
@@ -15,6 +15,7 @@ class Client(mqtt.Client):
     on_dialogue_manager = None
 
     def __init__(self, mqtt_host: str, mqtt_port: int) -> None:
+        super(Client, self).__init__()
         self.__mqtt_host = mqtt_host
         self.__mqtt_port = mqtt_port
         self.__logger = Logger.get('main.hermes.Client')
