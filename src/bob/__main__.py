@@ -4,7 +4,7 @@ from pathlib import Path
 import click
 from dotenv import load_dotenv
 
-from src.bob.services.hermes import Client
+from .services.hermes import Client
 from .__about__ import __version__
 from .services.logger import Logger
 

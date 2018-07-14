@@ -59,6 +59,7 @@ setup(
         ],
     },
     install_requires=INSTALL_REQUIRES,
+    # TODO: doesn't work
     dependency_links=[
         "git+https://github.com/plamere/spotipy.git"
     ],
